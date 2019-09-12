@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<fop version="1.0">
+  <strict-configuration>true</strict-configuration>
+  <strict-validation>true</strict-validation>
+  <base>.</base>
+  <font-base>~/.local/share/fonts</font-base>
+  <default-page-settings height="11in" width="8.5in"/>
+  <renderers>
+    <renderer mime="application/pdf">
+      <filterList>
+        <value>flate</value>
+      </filterList>
+      <fonts>
+        <font embed-url="MinionPro/MinionPro-Regular.otf" embedding-mode="subset" kerning="yes">
+          <font-triplet name="MinionPro" style="normal" weight="normal"/>
+        </font>
+        <font embed-url="MinionPro/MinionPro-It.otf" embedding-mode="subset" kerning="yes">
+          <font-triplet name="MinionPro" style="italic" weight="normal"/>
+        </font>
+        <font embed-url="MinionPro/MinionPro-Semibold.otf" embedding-mode="subset" kerning="yes">
+          <font-triplet name="MinionPro" style="normal" weight="bold"/>
+        </font>
+        <font embed-url="MinionPro/MinionPro-SemiboldIt.otf" embedding-mode="subset" kerning="yes">
+          <font-triplet name="MinionPro" style="italic" weight="bold"/>
+        </font>
+        <font embed-url="MinionPro/MinionPro-Bold.otf" embedding-mode="subset" kerning="yes">
+          <font-triplet name="MinionPro" style="normal" weight="900"/>
+        </font>
+        <font embed-url="MinionPro/MinionPro-BoldIt.otf" embedding-mode="subset" kerning="yes">
+          <font-triplet name="MinionPro" style="italic" weight="900"/>
+        </font>
+        <auto-detect/>
+      </fonts>
+    </renderer>
+  </renderers>
+</fop>
