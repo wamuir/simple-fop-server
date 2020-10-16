@@ -1,4 +1,4 @@
-package com.wamuir.fopserver;
+package com.github.wamuir.simplefopserver;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;

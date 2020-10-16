@@ -1,4 +1,4 @@
-package com.wamuir.fopserver;
+package com.github.wamuir.simplefopserver;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -13,8 +13,8 @@ import com.sun.net.httpserver.HttpServer;
 
 
 public class Server {
-    private static final int PORT = 5000;
-    private static final int NUM_THREADS = 8;
+    private static final int PORT = 8080;
+    private static final int NUM_THREADS = Runtime.getRuntime().availableProcessors();
     private static final FOProcessor processor = new FOProcessor();
     
     public static void main(String[] args) throws Exception {

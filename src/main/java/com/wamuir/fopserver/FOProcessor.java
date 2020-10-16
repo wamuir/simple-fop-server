@@ -1,4 +1,4 @@
-package com.wamuir.fopserver;
+package com.github.wamuir.simplefopserver;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -46,7 +46,7 @@ public class FOProcessor {
 
         } catch (Exception e) {
             pdf.reset();
-            System.out.println("No FO for you: " + e.getMessage());
+            System.out.println("No xsl:fo output for you: " + e.getMessage());
         } finally {
             return pdf;
         }
