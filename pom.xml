@@ -30,7 +30,7 @@
               </descriptorRefs>
               <archive>
                 <manifest>
-                  <mainClass>com.github.wamuir.simplefopserver.Server</mainClass>
+                  <mainClass>com.wamuir.simplefopserver.Server</mainClass>
                 </manifest>
               </archive>
             </configuration>
