@@ -1,13 +1,17 @@
 FROM maven:3-openjdk-15
 
-RUN install -d -m 0755 -o 1000 -g 1000 /srv/simple-fop-server
-RUN ln -s /srv/simple-fop-server/conf/fop.xconf /usr/local/etc/fop.xconf
+COPY conf/fop.xconf /usr/local/etc/fop.xconf
+
+RUN install -d -m 0755 -o 1000 -g 1000 /build
+
+WORKDIR /build
 
 USER 1000:1000
 
-WORKDIR /srv/simple-fop-server
+COPY pom.xml .
+RUN mvn dependency:go-offline
 
-COPY . .
+COPY src/ /build/src/
 
 RUN mvn package
 

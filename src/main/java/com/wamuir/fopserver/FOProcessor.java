@@ -23,7 +23,7 @@ public class FOProcessor {
 
     {
         try {
-            fopFactory = FopFactory.newInstance(new File("conf/fop.xconf"));
+            fopFactory = FopFactory.newInstance(new File("/usr/local/etc/fop.xconf"));
         } catch (Exception e) {
             e.printStackTrace();
         }
