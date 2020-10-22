@@ -15,6 +15,6 @@ COPY src/ /build/src/
 
 RUN mvn package
 
-ENTRYPOINT ["java", "-Xmx256M", "-jar", "target/simple-fop-server-0.0.1-SNAPSHOT-jar-with-dependencies.jar"]
+ENTRYPOINT ["java", "-jar", "target/simple-fop-server-0.0.1-SNAPSHOT-jar-with-dependencies.jar"]
 
 EXPOSE 8080/tcp
