@@ -34,9 +34,5 @@ public class Server {
             }
         }); 
         server.start();
-        while (true) {
-            Thread.sleep(Long.MAX_VALUE);
-        }
     }
-
 }
