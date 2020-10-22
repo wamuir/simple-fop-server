@@ -1,4 +1,4 @@
-package com.github.wamuir.simplefopserver;
+package com.wamuir.simplefopserver;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -23,7 +23,7 @@ public class FOProcessor {
 
     {
         try {
-            fopFactory = FopFactory.newInstance(new File("fop.xconf"));
+            fopFactory = FopFactory.newInstance(new File("conf/fop.xconf"));
         } catch (Exception e) {
             e.printStackTrace();
         }

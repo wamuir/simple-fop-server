@@ -1,4 +1,4 @@
-package com.github.wamuir.simplefopserver;
+package com.wamuir.simplefopserver;
 
 import org.apache.fop.events.Event;
 import org.apache.fop.events.EventFormatter;
