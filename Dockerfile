@@ -1,4 +1,4 @@
-FROM maven:3-openjdk-15
+FROM maven:3-openjdk-16
 
 WORKDIR /build
 
@@ -9,7 +9,7 @@ COPY src/ /build/src/
 RUN mvn package
 
 
-FROM openjdk:15-jdk-oraclelinux8
+FROM openjdk:16-jdk-oraclelinux8
 
 RUN install -d -m 0755 -o 1000 -g 1000 /app
 WORKDIR /app
