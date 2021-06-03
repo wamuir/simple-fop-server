@@ -23,6 +23,7 @@ RUN ["jlink", "--compress=2", \
      "--output", "/jlinked"]
 
 FROM alpine:latest
+RUN apk add --no-cache freetype ttf-dejavu
 RUN install -d -m 0755 -o 1000 -g 1000 /app
 WORKDIR /app
 COPY --from=build /build/target/simple-fop-server-0.0.1-SNAPSHOT-jar-with-dependencies.jar simple-fop-server.jar
