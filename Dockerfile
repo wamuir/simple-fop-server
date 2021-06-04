@@ -14,7 +14,7 @@ RUN mvn package
 # java.desktop: (bogusly) required by FOP since it uses its Rectangle2D...
 # java.xml: required by FOP
 # jdk.httpserver: used to spin up httpserver
-FROM openjdk:16-jdk-alpine AS jdk-builder
+FROM openjdk:16-jdk-slim-buster AS jdk-builder
 
 RUN ["jlink", "--compress=2", \
      "--module-path", "/opt/jdk/jdk-16/jmods", \
@@ -25,11 +25,11 @@ RUN ["jlink", "--compress=2", \
      "--output", "/jlinked"]
 
 
-FROM alpine:latest
+FROM debian:buster-slim
 
-RUN apk add --no-cache \
-    freetype \
-    ttf-dejavu
+RUN apt-get update && apt-get -y install --no-install-recommends \
+    fontconfig \
+    && rm -rf /var/lib/apt/lists/*
 
 RUN install -d -m 0755 -o 1000 -g 1000 /app
 COPY --from=srv-builder /build/target/simple-fop-server-0.1.0-jar-with-dependencies.jar /app/simple-fop-server.jar
