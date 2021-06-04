@@ -33,6 +33,18 @@ public class Server {
                 }
             }
         }); 
+        server.createContext("/health", new HttpHandler() {
+            @Override
+            public void handle(HttpExchange exchange) throws IOException {
+                try {
+                    exchange.sendResponseHeaders(200, -1);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                } finally {
+                    exchange.close();
+                }
+            }
+        }); 
         server.start();
     }
 }
