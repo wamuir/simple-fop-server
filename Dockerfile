@@ -9,7 +9,7 @@ COPY src src
 RUN mvn package
 
 
-# build minimal alpine JDK with just the modules we need:
+# build minimal JDK with just the modules we need:
 # java.base: minimal java APIs
 # java.desktop: (bogusly) required by FOP since it uses its Rectangle2D...
 # java.xml: required by FOP
@@ -32,7 +32,7 @@ RUN apt-get update && apt-get -y install --no-install-recommends \
     && rm -rf /var/lib/apt/lists/*
 
 RUN install -d -m 0755 -o 1000 -g 1000 /app
-COPY --from=srv-builder /build/target/simple-fop-server-0.1.0-jar-with-dependencies.jar /app/simple-fop-server.jar
+COPY --from=srv-builder /build/target/simple-fop-server-0.1.1-jar-with-dependencies.jar /app/simple-fop-server.jar
 COPY --from=jdk-builder /jlinked /opt/jdk
 COPY conf/fop.xconf /usr/local/etc/fop.xconf
 
