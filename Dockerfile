@@ -32,7 +32,7 @@ RUN apk add --no-cache \
     ttf-dejavu
 
 RUN install -d -m 0755 -o 1000 -g 1000 /app
-COPY --from=srv-builder /build/target/simple-fop-server-0.0.1-SNAPSHOT-jar-with-dependencies.jar /app/simple-fop-server.jar
+COPY --from=srv-builder /build/target/simple-fop-server-0.1.0-jar-with-dependencies.jar /app/simple-fop-server.jar
 COPY --from=jdk-builder /jlinked /opt/jdk
 COPY conf/fop.xconf /usr/local/etc/fop.xconf
 
