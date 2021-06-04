@@ -3,7 +3,7 @@
 set -ex
 
 # build image and start container
-IMAGE_ID=$(docker build -q ..)
+IMAGE_ID=$(docker build -q .)
 CONTAINER_ID=$(docker run -d -p 8080:8080 ${IMAGE_ID})
 
 # wait briefly to allow server to initialize
