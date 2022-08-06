@@ -14,7 +14,7 @@ RUN mvn package
 # java.desktop: (bogusly) required by FOP since it uses its Rectangle2D...
 # java.xml: required by FOP
 # jdk.httpserver: used to spin up httpserver
-FROM openjdk:16-jdk-slim-buster AS jdk-builder
+FROM openjdk:16-jdk-slim-bullseye AS jdk-builder
 
 RUN ["jlink", "--compress=2", \
      "--module-path", "/opt/jdk/jdk-16/jmods", \
@@ -25,7 +25,7 @@ RUN ["jlink", "--compress=2", \
      "--output", "/jlinked"]
 
 
-FROM debian:buster-slim
+FROM debian:bullseye-slim
 
 RUN apt-get update && apt-get -y install --no-install-recommends \
     fontconfig \
