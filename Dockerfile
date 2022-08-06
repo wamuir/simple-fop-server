@@ -1,4 +1,4 @@
-FROM maven:3-openjdk-16 AS srv-builder
+FROM maven:3-openjdk-17 AS srv-builder
 
 WORKDIR /build
 
@@ -14,10 +14,10 @@ RUN mvn package
 # java.desktop: (bogusly) required by FOP since it uses its Rectangle2D...
 # java.xml: required by FOP
 # jdk.httpserver: used to spin up httpserver
-FROM openjdk:16-jdk-slim-bullseye AS jdk-builder
+FROM openjdk:17-jdk-slim-bullseye AS jdk-builder
 
 RUN ["jlink", "--compress=2", \
-     "--module-path", "/opt/jdk/jdk-16/jmods", \
+     "--module-path", "/opt/jdk/jdk-17/jmods", \
      "--add-modules", "java.base", \
      "--add-modules", "java.desktop", \
      "--add-modules", "java.xml", \
